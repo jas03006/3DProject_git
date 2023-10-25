@@ -6,55 +6,57 @@
 
 ## Commit Type
 
-feat : Add new functions
+feat: 새로운 기능
 
-fix : Fix bugs
+fix: 버그 해결
 
-docs : Edit documents
+docs: 문서 변경
 
-style : Code Formatting, semi-colon omission, not code changing
+style: formatting, 놓친 세미콜론 등... 코드의 변경은 없음
 
-refactor : Code refactoring
+refactor: 코드 리팩토링
 
-test : Test code, add refactoring test code
+test: 테스트 코드 추가 혹은 테스트 코드 리팩토링. 코드의 변경은 없음
 
-chore : Fix build works, fix package manager
+chore: 패키지 매니저 구성, 빌드 작업 업데이트. 코드의 변경은 없음
 
-## Commit Example
+##주제
+ 
 
-Feat : "Implement Sign-In"
+주제는 50자를 넘어서는 안된다. 대문자로 시작해야 하며 마침표로 끝나면 안된다.
 
-SMS, Develope E-mail duplication check
+커밋이 수행 한 작업에 대해 명령형으로 작성한다. 
 
-Resolves : \#123
-Ref : \#456
+ 
 
-Related to : \#48, \#42
+##바디
+ 
 
-## Game Developement Plan
+모든 커밋들이 바디를 적어야 할 정도로 복잡하진 않기 때문에 바디는 옵션이고, 커밋이 약간의 설명과 문단이 필요할 때 바디가 사용된다. 
 
-- Object pulling
-- Collision
-- Sound
-- Key Input
+'어떻게'가 아닌 '무엇을' 그리고 '왜'에 대한 설명을 위해 바디를 사용해야한다.
 
-## About Me
-<picture>
-  <source
-    srcset="https://github-readme-stats.vercel.app/api?username=KangminLeo&show_icons=true&theme=dark"
-    media="(prefers-color-scheme: dark)"
-  />
-  <source
-    srcset="https://github-readme-stats.vercel.app/api?username=KangminLeo&show_icons=true"
-    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-  />
-  <img src="https://github-readme-stats.vercel.app/api?username=KangminLeo&show_icons=true" />
-</picture>
+ 
+
+바디를 적을 때, 타이틀과 바디 사이에 공백을 적어야 하고 각 줄에 글자가 72자를 넘지 않도록 해야한다.
+
+ 
+
+##푸터
+ 
+
+푸터도 옵션이고, 이슈트래커 아이디 참조로 사용된다.
 
 
+##커밋 메세지 예시
+ 
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KangminLeo&hide_progress=true)
+fix: CardList 컴포넌트 클릭 시 공백으로 나오는 오류 수정
 
-[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=minrifle)](https://solved.ac/profile/minrifle)<br/>
 
-![image](https://github.com/kangminLeo/GitTestProject/assets/98065922/857d5249-6ed8-4f40-adb2-0c18d1addab2)
+모바일 버전에서 CardList의 img 부분 클릭 시 공백으로 나오는 오류 수정.
+PC버전은 이상없음.
+
+
+Resolves: #232
+
