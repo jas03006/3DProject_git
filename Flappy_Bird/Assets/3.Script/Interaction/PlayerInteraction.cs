@@ -44,15 +44,18 @@ public class PlayerInteraction : MonoBehaviour
                 other.gameObject.SetActive(false);
                 GameManager.score += 10;
                 break;
-            case "Obstacle": // 장애물에 부딪혔을 때
+            case "Mountain": // 장애물에 부딪혔을 때
                 
                 if(GameManager.isInvincible) // 무적 상태일때
                 {
+                    Debug.Log("무적이라 통과");
+                    GameManager.isInvincible = false; // 일단 비활성화
                     return; // 그냥 통과 시킨다
                 }
                 else if (GameManager.isShield) // 쉴드 상태일때
                 {
                     GameManager.isShield = false; // 쉴드상태 false
+                    Debug.Log("쉴드라 통과");
                     // 충돌한 장애물 한개 벗어날때까지
                     // 플레이어를 무적화 시킬 예정
                 }
@@ -62,10 +65,12 @@ public class PlayerInteraction : MonoBehaviour
                     GameManager.isAlive = false;
                 }
                 break;
-            case "Shield": // 쉴드 먹었을 때
+            case "Gem": // 쉴드 먹었을 때
+                other.gameObject.SetActive(false);
                 GameManager.isShield = true;
                 break;
-            case "Invincible": // 무적 아이템 먹었을 때
+            case "Star": // 무적 아이템 먹었을 때
+                other.gameObject.SetActive(false);
                 GameManager.isInvincible = true;
                 break;
             default:
