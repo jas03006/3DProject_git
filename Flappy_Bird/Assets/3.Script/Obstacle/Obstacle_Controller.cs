@@ -12,7 +12,7 @@ public class Obstacle_Controller : MonoBehaviour
         transform.GetChild(0).TryGetComponent(out upper);
         transform.GetChild(1).TryGetComponent(out lower);
         setup(0);
-        //random_reset();
+        random_reset();
        // StartCoroutine(reset_test_co());
     }
 
