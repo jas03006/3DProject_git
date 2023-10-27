@@ -22,8 +22,6 @@ public class Object_controll : MonoBehaviour
     private void ObstacleMove()  
     {
         rigidbody[0].velocity = Vector3.right * -moveSpeed;
-        rigidbody[1].velocity = Vector3.right * -moveSpeed;
-        rigidbody[2].velocity = Vector3.right * -moveSpeed;
     }
     private void OnTriggerEnter(Collider other)
      {

@@ -7,6 +7,7 @@ public class ObjectPool : MonoBehaviour
     public static ObjectPool instance;
     [SerializeField] private float CreatTime = 0f;   // 생성 시간
     [SerializeField] private float CreatTimer = 0f;
+    [SerializeField] private float height = 0f;
     [SerializeField] private int ObstaclCount;
     public Queue<GameObject> ObstaclPool = new Queue<GameObject>();
     public GameObject Obstacl;
@@ -36,7 +37,7 @@ public class ObjectPool : MonoBehaviour
             {
                 pool.SetActive(true);
             }
-            pool.transform.position = new Vector3(0, 0, 0);
+            pool.transform.position = new Vector3(gameObject.transform.position.x, height, gameObject.transform.position.z);
 
             ObstaclPool.Enqueue(pool);
 

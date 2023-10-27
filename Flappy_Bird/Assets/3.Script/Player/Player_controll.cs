@@ -5,12 +5,13 @@ using UnityEngine;
 public class Player_controll : MonoBehaviour
 {
     [SerializeField] private float JumpForce = 10f; //มกวมทย
+    [SerializeField] private int PlayerNum = 0;
 
-    private Rigidbody rigidbody;
+    private Rigidbody[] rigidbody;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponentsInChildren<Rigidbody>();
     }
 
 
@@ -24,7 +25,7 @@ public class Player_controll : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //rigidbody.AddForce(Vector3.up * JumpForce,ForceMode.Impulse);
-            rigidbody.velocity = Vector3.up * JumpForce;
+            rigidbody[PlayerNum].velocity = Vector3.up * JumpForce;
         }
     }
 
