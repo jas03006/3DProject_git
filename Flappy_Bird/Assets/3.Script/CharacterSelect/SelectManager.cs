@@ -25,7 +25,8 @@ public class SelectManager : MonoBehaviour
             -> 현재 활성화되어 있는 캐릭터 인덱스 넘겨주기
 
     //추가 공유 사항
-        //컴퓨터 방향키, 엔터키로 구현함 
+        //컴퓨터 방향키, 엔터키로 구현함
+        //[1027] 컴퓨터 방향키, 엔터키 구현 -> 버튼 구현으로 수정
      */
     #endregion
 
@@ -44,9 +45,6 @@ public class SelectManager : MonoBehaviour
 
     private void Update()
     {
-        //입력받기
-        InputKey();
-
         //엔터키 누르면 선택하기
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -54,22 +52,19 @@ public class SelectManager : MonoBehaviour
         }
     }
 
-    private void InputKey() //입력받기
+    public void InputButton_R()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow)) //오른쪽 방향키 누르면 넘어가기(인덱스+1)
-        {
-            index++;
-            index %= characters.Length;
-            CharActive();
-        }
+        index++;
+        index %= characters.Length;
+        CharActive();
+    }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) // 왼쪽 방향키 누르면 넘어가기(인덱스-1)
-        {
-            index--;
-            index += characters.Length;
-            index %= characters.Length;
-            CharActive();
-        }
+    public void InputButton_L()
+    {
+        index--;
+        index += characters.Length;
+        index %= characters.Length;
+        CharActive();
     }
 
     private void CharActive()//넘어가기
@@ -88,7 +83,7 @@ public class SelectManager : MonoBehaviour
         characters[index].SetActive(true);
     }
 
-    private void Selected()//최종 선택하기
+    public void Selected()//최종 선택하기
     {
         //현재 활성화되어 있는 캐릭터 인덱스 PlayerPrefs 저장
         for (int i = 0; i < characters.Length; i++)
@@ -101,7 +96,7 @@ public class SelectManager : MonoBehaviour
         }
 
         //다음 씬으로 넘기기
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Camera_Test");
     }
 
 
