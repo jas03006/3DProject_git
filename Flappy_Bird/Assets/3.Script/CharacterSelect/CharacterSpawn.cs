@@ -10,16 +10,13 @@ public class CharacterSpawn : MonoBehaviour
      */
     #endregion
     [Header("캐릭터 스폰")]
-    [SerializeField] private GameObject[] characters; //캐릭터 오브젝트 배열
-    [SerializeField] private Transform spawnPosition;
+    [SerializeField] private GameObject[] chars; //캐릭터 오브젝트 배열
+    [SerializeField] private Transform spawnPos;
       
     private void Awake()
     {
-        spawnPosition = GetComponent<Transform>();
-    }
-    void Start()
-    {
-        Instantiate(characters[PlayerPrefs.GetInt("Info")], spawnPosition.position, Quaternion.identity);
+        spawnPos = GetComponent<Transform>();
+        Instantiate(chars[PlayerPrefs.GetInt("Info")], spawnPos.position, Quaternion.identity);
         PlayerPrefs.DeleteKey("Info");
     }
 }
