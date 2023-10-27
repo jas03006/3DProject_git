@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public Text scoreText, gameOver;
     public Button restart, toMenu;
-
+    public GameObject endMenu, pauseMenu;
     private void Update()
     {
         ShowScore(); // 현재 점수 UI
@@ -24,15 +24,17 @@ public class UIManager : MonoBehaviour
     {
         if (!GameManager.isAlive)
         {
-            gameOver.gameObject.SetActive(true);
-            restart.gameObject.SetActive(true);
-            toMenu.gameObject.SetActive(true);
+            endMenu.gameObject.SetActive(true);
+            //gameOver.gameObject.SetActive(true);
+            //restart.gameObject.SetActive(true);
+            //toMenu.gameObject.SetActive(true);
         }
         else if (GameManager.isAlive)
         {
-            gameOver.gameObject.SetActive(false);
-            restart.gameObject.SetActive(false);
-            toMenu.gameObject.SetActive(false);
+            endMenu.gameObject.SetActive(false);
+            //gameOver.gameObject.SetActive(false);
+            //restart.gameObject.SetActive(false);
+            //toMenu.gameObject.SetActive(false);
         }
     }
 
@@ -43,10 +45,12 @@ public class UIManager : MonoBehaviour
             if (Time.timeScale == 0)
             {
                 Time.timeScale = 1; // 재개
+                pauseMenu.gameObject.SetActive(false);
             }
             else
             {
                 Time.timeScale = 0; // 일시정지
+                pauseMenu.gameObject.SetActive(true);
             }
         }
     }
