@@ -5,11 +5,12 @@ using UnityEngine;
 public class Object_controll : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f; 
-    private Rigidbody rigidbody;
-
+    [SerializeField] private Rigidbody[] rigidbody;
+    private ObjectPool objectPool;
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponentsInChildren<Rigidbody>();
+        objectPool = GetComponent<ObjectPool>();
     }
 
 
@@ -20,6 +21,15 @@ public class Object_controll : MonoBehaviour
 
     private void ObstacleMove()  
     {
-        rigidbody.velocity = Vector3.right * -moveSpeed;
+        rigidbody[0].velocity = Vector3.right * -moveSpeed;
+        rigidbody[1].velocity = Vector3.right * -moveSpeed;
+        rigidbody[2].velocity = Vector3.right * -moveSpeed;
+    }
+    private void OnTriggerEnter(Collider other)
+     {
+        if (other.gameObject.CompareTag("DeadZone"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }

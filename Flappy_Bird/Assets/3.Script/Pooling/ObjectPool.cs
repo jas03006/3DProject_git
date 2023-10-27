@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
+    public static ObjectPool instance;
     [SerializeField] private float CreatTime = 0f;   // 생성 시간
-    private float CreatTimer = 0f;
+    [SerializeField] private float CreatTimer = 0f;
     [SerializeField] private int ObstaclCount;
     public Queue<GameObject> ObstaclPool = new Queue<GameObject>();
     public GameObject Obstacl;
@@ -29,14 +30,13 @@ public class ObjectPool : MonoBehaviour
             if (pool.activeSelf)
             {
                 ObstaclPool.Enqueue(pool);
-
                 pool = Instantiate(Obstacl);
             }
             else
             {
                 pool.SetActive(true);
             }
-            pool.transform.position = new Vector3(0f, UnityEngine.Random.Range(-3f, 3f), 0f); //나오는 위치
+            pool.transform.position = new Vector3(0, 0, 0);
 
             ObstaclPool.Enqueue(pool);
 
