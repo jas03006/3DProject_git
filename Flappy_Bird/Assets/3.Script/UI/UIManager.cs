@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Text scoreText, gameOver;
-    [SerializeField] private Button restart, toMenu;
+    //[SerializeField] private Button restart, toMenu;
     [SerializeField] private GameObject endMenu, pauseMenu;
+    
     private void Update()
     {
         ShowScore(); // 현재 점수 UI
@@ -48,6 +49,5 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
 
 }
