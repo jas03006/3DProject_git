@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
 {
     // 강민 Message : PlayerManager를 따로 만들지 고민중
     private static GameManager instance;
+    public static int level; // 난이도
     public static int score; // 현재 점수 
     public static bool isAlive = true; // 살아있는지 확인
     public static bool isShield = false; // 쉴드 상태
     public static bool isInvincible = false; // 무적 상태
+    
     public static GameManager Instance // 싱글톤
     {
         get
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
      isAlive = true; // 살아있는지 확인
      isShield = false; // 쉴드 상태
      isInvincible = false; // 무적 상태
+     level = 0;
      score = 0;
     }
 
