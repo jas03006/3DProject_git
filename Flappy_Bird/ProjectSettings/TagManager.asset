@@ -6,6 +6,9 @@ TagManager:
   tags:
   - DeadZone
   - Ground
+  - invincible_item
+  - score_item
+  - shield_item
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2941071063595400773}
   - component: {fileID: 1095570725484907151}
   - component: {fileID: 1456003762114521945}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PP_Forest_Mountain_Moss_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3326793945099861913}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: pos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 3326793945432215321}
   - component: {fileID: 3326793945432215322}
   - component: {fileID: 1221380346726784155}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TestObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rigidbody: []
+  id: 0
 --- !u!1 &3326793945589851536
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3326793945589851537}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: pos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3326793945804150807}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: pos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3326793945909814875}
   - component: {fileID: 3326793945909814876}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3326793946225482061}
   - component: {fileID: 3326793946225482062}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +375,7 @@ GameObject:
   - component: {fileID: 8265394585206388274}
   - component: {fileID: 8098969362653612302}
   - component: {fileID: 8099306876671251996}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SparksEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5257,7 +5258,7 @@ GameObject:
   - component: {fileID: 8265793473253965706}
   - component: {fileID: 8099119142714488192}
   - component: {fileID: 8097512412986462366}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10140,7 +10141,7 @@ GameObject:
   - component: {fileID: 8262542087063515436}
   - component: {fileID: 8099482863233255646}
   - component: {fileID: 8098032447273766880}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FireCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15023,7 +15024,7 @@ GameObject:
   - component: {fileID: 8265765204091946116}
   - component: {fileID: 8098923782430008820}
   - component: {fileID: 8098410229182385208}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SparksStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19915,7 +19916,7 @@ GameObject:
   - component: {fileID: 8265255034420955256}
   - component: {fileID: 8098855205124346586}
   - component: {fileID: 8097722093726760380}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: StartFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24862,7 +24863,7 @@ GameObject:
   - component: {fileID: 8099450815727730380}
   - component: {fileID: 8097905791142962776}
   - component: {fileID: 8297632088768464094}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29798,7 +29799,7 @@ GameObject:
   - component: {fileID: 8262614855596635244}
   - component: {fileID: 8098695353578682476}
   - component: {fileID: 8098024199724765530}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: StartRays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34692,7 +34693,7 @@ GameObject:
   - component: {fileID: 8097526929008115262}
   - component: {fileID: 8323527452852385018}
   - component: {fileID: 8301177738093900638}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fire buff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39723,7 +39724,7 @@ GameObject:
   - component: {fileID: 8099432350758164620}
   - component: {fileID: 8260561654096246472}
   - component: {fileID: 8260561654096246473}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FireUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44646,7 +44647,7 @@ GameObject:
   - component: {fileID: 8265645236505071722}
   - component: {fileID: 8099499597677277296}
   - component: {fileID: 8097878566480030970}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SparksExpl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49529,7 +49530,7 @@ GameObject:
   - component: {fileID: 8262419467690619528}
   - component: {fileID: 8099109071242533952}
   - component: {fileID: 8099362184759897008}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MainTrails
   m_TagString: Untagged
   m_Icon: {fileID: 0}

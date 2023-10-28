@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 72128513928097880}
   - component: {fileID: 72128513928097882}
   m_Layer: 0
-  m_Name: Condor_Obstacle 1
+  m_Name: Condor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2323,7 +2323,7 @@ GameObject:
   - component: {fileID: 2952553780305237849}
   - component: {fileID: 2952553780305237851}
   m_Layer: 0
-  m_Name: Dragon_Obstacle 1
+  m_Name: Dragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4287,7 +4287,7 @@ GameObject:
   - component: {fileID: 6172571741009933147}
   - component: {fileID: 6172571741009933150}
   m_Layer: 0
-  m_Name: Chicken_Obstacle 1
+  m_Name: Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4796,7 +4796,9 @@ MonoBehaviour:
   CreatTimer: 0
   height: -2
   ObstaclCount: 5
+  ItemCount: 2
   Obstacl: {fileID: 3326793945432215399, guid: 4b77574067b678044b5ab13269c4d1ac, type: 3}
+  ItemPrefabs: {fileID: 911498230089321295, guid: e363b6e1daf0c8e47b0aafb7e70d9b59, type: 3}
 --- !u!1 &8253361653416720578
 GameObject:
   m_ObjectHideFlags: 0

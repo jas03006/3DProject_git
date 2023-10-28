@@ -6,6 +6,7 @@ public class Object_controll : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f; 
     [SerializeField] private Rigidbody[] rigidbody;
+    [SerializeField] private int id = 0;
     private ObjectPool objectPool;
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class Object_controll : MonoBehaviour
         if (other.gameObject.CompareTag("DeadZone"))
         {
             this.gameObject.SetActive(false);
-            ObjectPool.Instance.ObstaclPool.Enqueue(gameObject);
+            ObjectPool.Instance.enqueue_ob(id, gameObject);
         }
     }
     public float GetSpeed()

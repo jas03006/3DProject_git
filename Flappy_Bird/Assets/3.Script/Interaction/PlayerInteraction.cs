@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Start()
     {
        // rigidBody = GetComponent<Rigidbody>();
-       // smRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        smRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
     }
 
     private void Update()
@@ -67,17 +67,17 @@ public class PlayerInteraction : MonoBehaviour
             return;
         }
 
-        switch (other.transform.name)
+        switch (other.transform.tag)
         {
-            case "Apple": // 코인 먹었을 때
+            case "score_item": // 코인 먹었을 때
                 other.gameObject.SetActive(false); // 충돌한 코인 setActive
                 GameManager.score += 10; // 10점 추가
                 break;                
-            case "Gem": // 쉴드 먹었을 때
+            case "shield_item": // 쉴드 먹었을 때
                 other.gameObject.SetActive(false);
                 GameManager.isShield = true;
                 break;
-            case "Star": // 무적 아이템 먹었을 때
+            case "invincible_item": // 무적 아이템 먹었을 때
                 other.gameObject.SetActive(false);
 
                 if (saveInvincible != null)
@@ -111,7 +111,7 @@ public class PlayerInteraction : MonoBehaviour
          GameManager.isInvincible = false;
         // }
 
-        GameManager.isInvincible = false;
+        //GameManager.isInvincible = false;
         yield break;
 
     }
