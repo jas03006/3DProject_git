@@ -397,7 +397,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 544560561}
         m_TargetAssemblyTypeName: MainUIManager, Assembly-CSharp
-        m_MethodName: SetLevel
+        m_MethodName: ChangeLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+  m_Color: {r: 0.6509804, g: 0.8862745, b: 0.30588236, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2553,7 +2553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+  m_Color: {r: 0.6509804, g: 0.8862746, b: 0.30588236, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2694,7 +2694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6509804, g: 0.8862745, b: 0.30588236, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3410,7 +3410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6509804, g: 0.8862746, b: 0.30588236, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
