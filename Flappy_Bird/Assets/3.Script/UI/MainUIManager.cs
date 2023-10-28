@@ -11,6 +11,7 @@ public class MainUIManager : MonoBehaviour
 
     [Header("메뉴, 옵션")]
     [SerializeField] GameObject[] gameObjects; // 메인,옵션
+    [SerializeField] Text[] Ranktexts;
 
     private bool isOption; // 옵션 클릭했는지 체크하기위해
 
@@ -19,8 +20,6 @@ public class MainUIManager : MonoBehaviour
         isOption = false;
 
     }
-
-
 
     public void MainStartGame() // 게임 시작
     {
@@ -50,8 +49,6 @@ public class MainUIManager : MonoBehaviour
         GameManager.level += levelNum;
     }
 
-
-
     public void ChangeLevelText() // 레벨 텍스트 변환
     {
         switch(GameManager.level)
@@ -73,5 +70,10 @@ public class MainUIManager : MonoBehaviour
     public void MainExit()
     {
         Application.Quit(); // 게임 종료
+    }
+
+    public void PrintRank()
+    {
+    
     }
 }
