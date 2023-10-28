@@ -6,11 +6,13 @@ public class BackGround_Scroll : MonoBehaviour
 {
     [SerializeField] private float GroundSpeed = 0;
     private Rigidbody rigidbody;
+    private Collider collider;
     
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        collider = GetComponentInChildren<MeshCollider>();
     }
     private void Update()
     {
@@ -24,7 +26,7 @@ public class BackGround_Scroll : MonoBehaviour
     {
         if (other.gameObject.CompareTag("DeadZone"))
         {
-            this.gameObject.transform.Translate(Vector3.forward * 100f);
+            this.gameObject.transform.Translate(Vector3.forward * collider.bounds.size.x*0.9f * 5);
         }
     }
 }
