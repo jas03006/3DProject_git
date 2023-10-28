@@ -28,6 +28,11 @@ public class Object_controll : MonoBehaviour
         if (other.gameObject.CompareTag("DeadZone"))
         {
             this.gameObject.SetActive(false);
+            ObjectPool.Instance.ObstaclPool.Enqueue(gameObject);
         }
+    }
+    public float GetSpeed()
+    {
+        return moveSpeed;
     }
 }

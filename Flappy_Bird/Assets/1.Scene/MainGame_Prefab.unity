@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 532105800}
   - component: {fileID: 532105803}
   - component: {fileID: 532105804}
+  - component: {fileID: 532105805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -316,6 +317,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5af978c11fadd418ad5cc1b9d9ec50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &532105805
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532105799}
+  m_Enabled: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +474,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -517,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.99, z: -15.66}
+  m_LocalPosition: {x: 0, y: 3.99, z: -5.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16904,7 +16913,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
   randomSeed: 0
