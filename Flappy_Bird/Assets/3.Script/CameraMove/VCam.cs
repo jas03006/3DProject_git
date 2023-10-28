@@ -12,7 +12,7 @@ public class VCam : MonoBehaviour
     void Start()
     {
         vCam = GetComponent<CinemachineVirtualCamera>();
-        player = FindObjectOfType<CameraTestMovement>().transform;
+        player = FindObjectOfType<Player_controll>().get_now_player();
 
         vCam.Follow = player;
         vCam.LookAt = player;
