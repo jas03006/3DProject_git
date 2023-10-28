@@ -51,6 +51,11 @@ public class GameManager : MonoBehaviour
     //    DontDestroyOnLoad(gameObject);
 
     //}
+
+    private void Start()
+    {
+        Init();
+    }
     private void Init()
     {
      isAlive = true; // 살아있는지 확인

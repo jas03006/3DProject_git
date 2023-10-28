@@ -25,17 +25,27 @@ public class UIManager : MonoBehaviour
     {
         if (!GameManager.isAlive)
         {
+            Time.timeScale = 0;
             endMenu.gameObject.SetActive(true); // 끝날때 메뉴
         }
         else if (GameManager.isAlive)
         {
+           // Time.timeScale = 1;
             endMenu.gameObject.SetActive(false);
         }
     }
 
+    public void restart()
+    {
+        Time.timeScale = 1;
+        endMenu.gameObject.SetActive(false);
+        GameManager.isAlive = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     private void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // pause 기능
+        if (GameManager.isAlive && Input.GetKeyDown(KeyCode.Escape)) // pause 기능
         {
             if (Time.timeScale == 0)
             {
@@ -65,8 +75,10 @@ public class UIManager : MonoBehaviour
 
     public void Option(bool check) // 옵션 메뉴
     {
+        
         if (GameManager.isAlive)
         {
+            //Debug.Log("option");
             optionMenu.SetActive(check);
             pauseMenu.SetActive(!check);
         }
@@ -77,6 +89,8 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    
 
    /* public void LoadScene() // 해당 string 씬 로딩 
     {

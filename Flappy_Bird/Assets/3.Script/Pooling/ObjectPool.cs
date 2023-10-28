@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public static ObjectPool Instance = null;
+    public static ObjectPool Instance;
 
     [SerializeField] private float CreatTime = 0f;   // 생성 시간
     [SerializeField] private float CreatTimer = 0f;
@@ -69,7 +69,7 @@ public class ObjectPool : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {

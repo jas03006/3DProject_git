@@ -25,7 +25,7 @@ public class MainUIManager : MonoBehaviour
     public void MainStartGame() // 게임 시작
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainGame_Interaction"); // MainGame 씬 불러오기 // message
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // MainGame 씬 불러오기 // message
     }
 
     public void MainOption()
