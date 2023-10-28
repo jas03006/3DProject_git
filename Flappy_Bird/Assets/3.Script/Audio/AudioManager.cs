@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         //초기 볼륨 설정
-        volumeSlider.value = audioSource.volume;
+       // volumeSlider.value = audioSource.volume;
 
         volumeSlider.onValueChanged.AddListener(ChangeVolume);
     }
