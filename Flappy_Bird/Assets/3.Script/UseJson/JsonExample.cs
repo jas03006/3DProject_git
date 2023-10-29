@@ -22,16 +22,7 @@ public class JTestClass
         data.Add(rank);
         data.Sort((a, b) => b.score.CompareTo(a.score));
     }
-
-    //public void Print()
-    //{
-    //    for (int i = 0; i < data.Count; i++)
-    //    {
-    //        Debug.Log($"{i + 1}µî! {data[i].name} : {data[i].score}");
-    //    }
-    //}
 }
-
 public class JsonExample : MonoBehaviour
 {
     public JTestClass jtc;
@@ -68,7 +59,6 @@ public class JsonExample : MonoBehaviour
         jtc = new JTestClass();
         jsondata = ObjectToJson(jtc);
         CreateJsonFile(Application.dataPath, "JTestClass", jsondata);
-        //jtc = LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
     }
     private void Update()
     {
