@@ -25,10 +25,10 @@ public class MainUIManager : MonoBehaviour
         isOption = false;
     }
 
-    public void MainStartGame() // 게임 시작
+    public void SceneLoad(string scene_name) // 게임 시작
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // MainGame 씬 불러오기 // message
+        SceneManager.LoadScene(scene_name); // MainGame 씬 불러오기 // message
     }
 
     public void MainOption()
@@ -101,7 +101,8 @@ public class MainUIManager : MonoBehaviour
         //3등text : ranktexts[2]
 
         jsonExample.jtc = jsonExample.LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
-        for (int i = 0; i < jsonExample.jtc.data.Count; i++)
+        //for (int i = 0; i < jsonExample.jtc.data.Count; i++)
+        for (int i = 0; i < ranktexts.Length && i< jsonExample.jtc.data.Count; i++)
         {
             ranktexts[i].text = $"{i + 1}등 : {jsonExample.jtc.data[i].name} / {jsonExample.jtc.data[i].score}";
         }
