@@ -5,14 +5,14 @@ using UnityEngine;
 public class BackGround_Scroll : MonoBehaviour
 {
     [SerializeField] private float GroundSpeed = 0;
-    private Rigidbody rigidbody;
-    private Collider collider;
+    private Rigidbody rigidbody_;
+    private Collider collider_;
     
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponentInChildren<MeshCollider>();
+        rigidbody_ = GetComponent<Rigidbody>();
+        collider_ = GetComponentInChildren<MeshCollider>();
     }
     private void Update()
     {
@@ -20,13 +20,13 @@ public class BackGround_Scroll : MonoBehaviour
     }
     private void BackGround_move() //¸Ê ¿òÁ÷ÀÓ
     {
-        rigidbody.velocity = Vector3.right * GroundSpeed;
+        rigidbody_.velocity = Vector3.right * GroundSpeed;
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("DeadZone"))
         {
-            this.gameObject.transform.Translate(Vector3.forward * collider.bounds.size.x*0.9f * 5);
+            this.gameObject.transform.Translate(Vector3.forward * collider_.bounds.size.x*0.9f * 5);
         }
     }
 }

@@ -6,18 +6,31 @@ public class Obstacle_Controller : MonoBehaviour
 {
     private Obstacle_Upper upper;
     private Obstacle_Lower lower;
-
     private void Start()
     {
         transform.GetChild(0).TryGetComponent(out upper);
         transform.GetChild(1).TryGetComponent(out lower);
-        setup(0);
+        setup(get_player_id());
         random_reset();
        // StartCoroutine(reset_test_co());
     }
-
-    public void setup(int player_id ) { //불기둥 높이 0, 1, 2  
-        upper.init(player_id);
+    private int get_player_id()
+    {
+        Player_controll pc = FindObjectOfType<Player_controll>();
+        if (pc != null) {
+            return pc.get_PlayerNum();
+        }
+        if (PlayerPrefs.HasKey("Info"))
+        {
+            return PlayerPrefs.GetInt("Info");
+        }
+        else
+        {
+            return Random.Range(0, transform.childCount);
+        }
+    }
+    public void setup( int id) { //불기둥 높이 0, 1, 2  
+        upper.init(id);
     }
 
     public void random_reset() // 호출하면 랜덤으로 불기둥 높이를 설정해서 Active 해줍니당

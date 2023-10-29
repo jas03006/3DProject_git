@@ -19,15 +19,21 @@ public class UIManager : MonoBehaviour
     
     private void ShowScore()
     {
-        scoreText.text = $"Score : {GameManager.score}";
+        if (scoreText) {
+            scoreText.text = $"Score : {GameManager.instance.score}";
+        }
+        
     }
 
     private void UITrigger()
     {
         if (!GameManager.isAlive)
         {
-            Time.timeScale = 0;
-            endMenu.gameObject.SetActive(true); // 끝날때 메뉴
+            if (!endMenu.gameObject.activeSelf) {
+                Time.timeScale = 0;
+                endMenu.gameObject.SetActive(true); // 끝날때 메뉴
+                endMenu.GetComponentInChildren<End_Ranking>().PrintNewRank();
+            }            
         }
         else if (GameManager.isAlive)
         {
