@@ -23,6 +23,7 @@ public class MainUIManager : MonoBehaviour
     {
         jsonExample = FindObjectOfType<JsonExample>();
         isOption = false;
+        isRanking = false;
     }
 
     public void SceneLoad(string scene_name) // 게임 시작
@@ -35,14 +36,14 @@ public class MainUIManager : MonoBehaviour
     {
         if (!isOption) // 메인
         {
-            gameObjects[(int)Menus.Main].SetActive(true); // 메인 활성화
-            gameObjects[(int)Menus.Option].SetActive(false); // 옵션 비활성화
+            gameObjects[(int)Menus.Main].SetActive(false); // 메인 비활성화
+            gameObjects[(int)Menus.Option].SetActive(true); // 옵션 활성화            
             isOption = true; // 옵션인지 물어보는 bool값을 true로 바꿈
         }
         else //옵션
         {
-            gameObjects[(int)Menus.Main].SetActive(false); // 메인 비활성화
-            gameObjects[(int)Menus.Option].SetActive(true); // 옵션 활성화
+            gameObjects[(int)Menus.Main].SetActive(true); // 메인 활성화
+            gameObjects[(int)Menus.Option].SetActive(false); // 옵션 비활성화
             isOption = false;
         }
     }
@@ -51,16 +52,17 @@ public class MainUIManager : MonoBehaviour
     {
         if (!isRanking) // 메인
         {
-            gameObjects[(int)Menus.Main].SetActive(true); // 메인 활성화
-            gameObjects[(int)Menus.Ranking].SetActive(false); // 랭킹 비활성화
+            PrintRank();
+            gameObjects[(int)Menus.Main].SetActive(false); // 메인 활성화
+            gameObjects[(int)Menus.Ranking].SetActive(true); // 랭킹 비활성화
             isRanking = true; // 랭킹인지 물어보는 bool값을 true로 바꿈
         }
 
         else // 랭킹
         {
-            PrintRank();
-            gameObjects[(int)Menus.Main].SetActive(false); // 메인 비활성화
-            gameObjects[(int)Menus.Ranking].SetActive(true); // 옵션 활성화
+            
+            gameObjects[(int)Menus.Main].SetActive(true); // 메인 비활성화
+            gameObjects[(int)Menus.Ranking].SetActive(false); // 옵션 활성화
             isRanking = false;
         }
     }
@@ -99,12 +101,20 @@ public class MainUIManager : MonoBehaviour
         //1등text : ranktexts[0]
         //2등text : ranktexts[1] 
         //3등text : ranktexts[2]
-
+        const int name_space = 16;
+        const int score_space = 8;
         jsonExample.jtc = jsonExample.LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
         //for (int i = 0; i < jsonExample.jtc.data.Count; i++)
-        for (int i = 0; i < ranktexts.Length && i< jsonExample.jtc.data.Count; i++)
+        for (int i = 0; i < ranktexts.Length; i++)
         {
-            ranktexts[i].text = $"{i + 1}등 : {jsonExample.jtc.data[i].name} / {jsonExample.jtc.data[i].score}";
+            if (i >= jsonExample.jtc.data.Count) {
+                ranktexts[i].text = string.Format($"{i + 1}등 : {"",name_space} / {"",score_space}");
+                continue;
+            }
+            string name_length = (name_space - jsonExample.jtc.data[i].name.Length*3).ToString();
+            string score_length = (score_space - jsonExample.jtc.data[i].score.ToString().Length).ToString() ;
+           //ranktexts[i].text = string.Format($"{i + 1}등 : {jsonExample.jtc.data[i].name,word_space } / {jsonExample.jtc.data[i].score,word_space}");
+           ranktexts[i].text = string.Format("{0}등 : {1, "+ name_length + " } / {2, "+ score_length + "}", i+1, jsonExample.jtc.data[i].name, jsonExample.jtc.data[i].score);
         }
     }
 }

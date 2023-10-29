@@ -9,7 +9,7 @@ public class Player_controll : MonoBehaviour
 
     [SerializeField] private AudioClip flap_clip;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rigidbody_;
     private AudioSource audio_source;
 
     private void Start()
@@ -41,14 +41,14 @@ public class Player_controll : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(i==PlayerNum);
         }
-        rigidbody = transform.GetChild(PlayerNum).gameObject.GetComponent<Rigidbody>();
+        rigidbody_ = transform.GetChild(PlayerNum).gameObject.GetComponent<Rigidbody>();
     }
 
     private void PlayerJump()   //플레이어 점프
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody.AddForce(Vector3.up * get_force_adjustment(rigidbody.velocity.y) * JumpForce,ForceMode.Impulse );
+            rigidbody_.AddForce(Vector3.up * get_force_adjustment(rigidbody_.velocity.y) * JumpForce,ForceMode.Impulse );
             audio_source.PlayOneShot(flap_clip);
             //rigidbody[PlayerNum].velocity = Vector3.up * JumpForce;
         }
@@ -62,6 +62,6 @@ public class Player_controll : MonoBehaviour
     }
 
     public Transform get_now_player() {
-        return rigidbody.transform;
+        return rigidbody_.transform;
     }
 }

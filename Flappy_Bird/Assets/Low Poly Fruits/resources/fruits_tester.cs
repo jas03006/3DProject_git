@@ -15,7 +15,7 @@ public class fruits_tester : MonoBehaviour {
 	void Update () 
 	{
 		
-		fruits[0].transform.RotateAround (Vector3.up, Time.deltaTime);
+		/*fruits[0].transform.RotateAround (Vector3.up, Time.deltaTime);
 		fruits[1].transform.RotateAround (Vector3.up, -Time.deltaTime);
 		fruits[2].transform.RotateAround (Vector3.up, Time.deltaTime);
 		fruits[3].transform.RotateAround (Vector3.up, -Time.deltaTime);
@@ -24,7 +24,7 @@ public class fruits_tester : MonoBehaviour {
 		fruits[6].transform.RotateAround (Vector3.up, Time.deltaTime);
 		fruits[7].transform.RotateAround (Vector3.up, -Time.deltaTime);
 		fruits[8].transform.RotateAround (Vector3.up, Time.deltaTime);
-		fruits[9].transform.RotateAround (Vector3.up, -Time.deltaTime);
+		fruits[9].transform.RotateAround (Vector3.up, -Time.deltaTime);*/
 	
 	}
 }

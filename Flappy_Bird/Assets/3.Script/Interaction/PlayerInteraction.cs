@@ -5,7 +5,7 @@ using UnityEngine;
 enum Item { Score = 0, Shield, Invincible }
 public class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField] private float blinkDuration = 1.0f;
+    //[SerializeField] private float blinkDuration = 1.0f;
     [SerializeField] private Material[] materials;
     [SerializeField] private int item_score = 10;
 
@@ -53,6 +53,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         //Debug.Log(other.transform.name);
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Obstacle")))
         { // 장애물에 부딪혔을 때
@@ -72,6 +73,7 @@ public class PlayerInteraction : MonoBehaviour
             else // 쉴드상태와 무적상태가 off일 때
             {
                 gameObject.SetActive(false);
+
                 //Destroy(gameObject);
                 GameManager.isAlive = false;
             }
@@ -81,17 +83,19 @@ public class PlayerInteraction : MonoBehaviour
         switch (other.transform.tag)
         {
             case "score_item": // 코인 먹었을 때
-                other.gameObject.SetActive(false); // 충돌한 코인 setActive
-                GameManager.score += item_score; // 점수 추가
+                other.transform.parent.gameObject.SetActive(false); // 충돌한 코인 setActive
+                ObjectPool.Instance.enqueue_ob(1, other.transform.parent.gameObject);
+                GameManager.instance.score += item_score; // 점수 추가
                 break;                
             case "shield_item": // 쉴드 먹었을 때
-                other.gameObject.SetActive(false);
+                other.transform.parent.gameObject.SetActive(false);
+                ObjectPool.Instance.enqueue_ob(1, other.transform.parent.gameObject);
                 GameManager.isShield = true;
                 shield_ob.SetActive(true);
                 break;
             case "invincible_item": // 무적 아이템 먹었을 때
-                other.gameObject.SetActive(false);
-
+                other.transform.parent.gameObject.SetActive(false);
+                ObjectPool.Instance.enqueue_ob(1, other.transform.parent.gameObject);
                 if (saveInvincible != null)
                 {
                     StopCoroutine(saveInvincible);

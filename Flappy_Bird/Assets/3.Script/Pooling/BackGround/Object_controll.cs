@@ -5,12 +5,12 @@ using UnityEngine;
 public class Object_controll : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 10f; 
-    [SerializeField] private Rigidbody[] rigidbody;
+    [SerializeField] private Rigidbody[] rigidbody_;
     [SerializeField] private int id = 0;
     private ObjectPool objectPool;
     private void Awake()
     {
-        rigidbody = GetComponentsInChildren<Rigidbody>();
+        rigidbody_ = GetComponentsInChildren<Rigidbody>();
         objectPool = GetComponent<ObjectPool>();
     }
 
@@ -22,7 +22,7 @@ public class Object_controll : MonoBehaviour
 
     private void ObstacleMove()  
     {
-        rigidbody[0].velocity = Vector3.right * -moveSpeed;
+        rigidbody_[0].velocity = Vector3.right * -moveSpeed;
     }
     private void OnTriggerEnter(Collider other)
      {

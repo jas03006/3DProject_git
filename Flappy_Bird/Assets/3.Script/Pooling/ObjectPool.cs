@@ -87,6 +87,8 @@ public class ObjectPool : MonoBehaviour
             {
                 itempool = ItemPool.Dequeue();
                 itempool.SetActive(true);
+                //Debug.Log(itempool);
+                itempool.GetComponent<Item_Controller>().reset();
             }
         float speed = itempool.GetComponent<Object_controll>().GetSpeed();
         itempool.transform.position = new Vector3(gameObject.transform.position.x - speed * CreatTime/ 2, gameObject.transform.position.y + UnityEngine.Random.Range(-0.8f, 0.8f)* height, gameObject.transform.position.z);

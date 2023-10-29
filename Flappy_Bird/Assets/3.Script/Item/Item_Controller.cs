@@ -7,11 +7,15 @@ public class Item_Controller : MonoBehaviour
     
     void Start()
     {
-        int index = Random.Range(0, transform.childCount);
-        setup(index);
+        reset();
     }
 
-    private void setup(int index) {
+    public void reset()
+    {
+        setup(Random.Range(0, transform.childCount));
+    }
+
+    public void setup(int index) {
         for (int i =0; i < transform.childCount; i++) {
             Transform now_t = transform.GetChild(i);
             if (i == index)

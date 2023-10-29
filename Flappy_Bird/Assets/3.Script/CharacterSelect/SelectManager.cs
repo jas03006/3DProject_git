@@ -96,7 +96,7 @@ public class SelectManager : MonoBehaviour
         }
 
         //다음 씬으로 넘기기
-        SceneManager.LoadScene("Camera_Test");
+        SceneManager.LoadScene("MainGame");
     }
 
 

@@ -13,6 +13,19 @@ public class JTestUnitClass
 public class JTestClass
 {
     public List<JTestUnitClass> data;
+    public JTestClass()
+    {
+        data = new List<JTestUnitClass>();
+    }
+    public JTestClass(JTestClass jtc) {
+        data = new List<JTestUnitClass>();
+        for (int i = 0; i < jtc.data.Count; i++) {
+            JTestUnitClass jtuc = new JTestUnitClass();
+            jtuc.name = jtc.data[i].name;
+            jtuc.score = jtc.data[i].score;
+            data.Add(jtuc);
+        }
+    }
 
     public void RankUpdate(string new_name, int new_score)
     {
@@ -36,7 +49,7 @@ public class JsonExample : MonoBehaviour
     {
         return JsonUtility.FromJson<T>(jsonData); //JsonUtility.ToJson(obj) : Json데이터를 object로 전환
     }
-    void CreateJsonFile(string createPath, string filename, string jsonData)
+    public void CreateJsonFile(string createPath, string filename, string jsonData)
     {
         FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", createPath, filename), FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(jsonData);
@@ -58,7 +71,7 @@ public class JsonExample : MonoBehaviour
     {
         jtc = new JTestClass();
         jsondata = ObjectToJson(jtc);
-        CreateJsonFile(Application.dataPath, "JTestClass", jsondata);
+        //CreateJsonFile(Application.dataPath, "JTestClass", jsondata);
     }
     private void Update()
     {
@@ -85,6 +98,12 @@ public class JsonExample : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             //jtc.Print();
+            jtc = LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            //jtc.Print();
+            CreateJsonFile(Application.dataPath, "JTestClass", "{}");
             jtc = LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
         }
     }
