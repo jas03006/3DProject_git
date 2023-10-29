@@ -4,23 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-enum Menus { Main = 0 , Option }
+enum Menus { Main = 0 , Option , Ranking }
 
 public class MainUIManager : MonoBehaviour
 {
 
     [Header("메뉴, 옵션")]
     [SerializeField] GameObject[] gameObjects; // 메인,옵션
+    [SerializeField] Text[] ranktexts;
 
-    private bool isOption; // 옵션 클릭했는지 체크하기위해
+    [Header("랭킹")]
+    [SerializeField]private JsonExample jsonExample;
+
+    private bool isOption; // 옵션 클릭했는지 체크하기 위해
+    private bool isRanking; // 랭킹 클릭했는지 체크하기 위해
 
     private void Start()
     {
+        jsonExample = FindObjectOfType<JsonExample>();
         isOption = false;
-
     }
-
-
 
     public void MainStartGame() // 게임 시작
     {
@@ -30,17 +33,35 @@ public class MainUIManager : MonoBehaviour
 
     public void MainOption()
     {
-        if(!isOption) // 메인일 때
+        if (!isOption) // 메인
         {
-            gameObjects[(int)Menus.Main].SetActive(true); // 옵션 활성화
-            gameObjects[(int)Menus.Option].SetActive(false); // 메인 비활성화
+            gameObjects[(int)Menus.Main].SetActive(true); // 메인 활성화
+            gameObjects[(int)Menus.Option].SetActive(false); // 옵션 비활성화
             isOption = true; // 옵션인지 물어보는 bool값을 true로 바꿈
         }
-        else // 옵션인지 물어보는 bool값이 true일 때
+        else //옵션
         {
-            gameObjects[(int)Menus.Main].SetActive(false); // 옵션 비활성화
-            gameObjects[(int)Menus.Option].SetActive(true); // 메인 활성화
+            gameObjects[(int)Menus.Main].SetActive(false); // 메인 비활성화
+            gameObjects[(int)Menus.Option].SetActive(true); // 옵션 활성화
             isOption = false;
+        }
+    }
+
+    public void Ranking()
+    {
+        if (!isRanking) // 메인
+        {
+            gameObjects[(int)Menus.Main].SetActive(true); // 메인 활성화
+            gameObjects[(int)Menus.Ranking].SetActive(false); // 랭킹 비활성화
+            isRanking = true; // 랭킹인지 물어보는 bool값을 true로 바꿈
+        }
+
+        else // 랭킹
+        {
+            PrintRank();
+            gameObjects[(int)Menus.Main].SetActive(false); // 메인 비활성화
+            gameObjects[(int)Menus.Ranking].SetActive(true); // 옵션 활성화
+            isRanking = false;
         }
     }
 
@@ -49,8 +70,6 @@ public class MainUIManager : MonoBehaviour
         if(GameManager.level > 0 || GameManager.level < 2)
         GameManager.level += levelNum;
     }
-
-
 
     public void ChangeLevelText() // 레벨 텍스트 변환
     {
@@ -73,5 +92,18 @@ public class MainUIManager : MonoBehaviour
     public void MainExit()
     {
         Application.Quit(); // 게임 종료
+    }
+
+    public void PrintRank()
+    {
+        //1등text : ranktexts[0]
+        //2등text : ranktexts[1] 
+        //3등text : ranktexts[2]
+
+        jsonExample.jtc = jsonExample.LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
+        for (int i = 0; i < jsonExample.jtc.data.Count; i++)
+        {
+            ranktexts[i].text = $"{i + 1}등 : {jsonExample.jtc.data[i].name} / {jsonExample.jtc.data[i].score}";
+        }
     }
 }
