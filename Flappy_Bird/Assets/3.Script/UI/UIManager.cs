@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     //[SerializeField] private Button restart, toMenu;
     [SerializeField] private GameObject endMenu, optionMenu, pauseMenu;
     [SerializeField] private Image backgroundImage;
+
     private void Update()
     {
         ShowScore(); // 현재 점수 UI
@@ -89,8 +90,6 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
-    
 
    /* public void LoadScene() // 해당 string 씬 로딩 
     {

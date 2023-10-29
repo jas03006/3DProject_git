@@ -22,16 +22,7 @@ public class JTestClass
         data.Add(rank);
         data.Sort((a, b) => b.score.CompareTo(a.score));
     }
-   
-    public void Print()
-    {
-        for (int i = 0; i < data.Count; i++)
-        {
-            Debug.Log($"{i+1}µî! {data[i].name} : {data[i].score}");
-        }
-    }
 }
-
 public class JsonExample : MonoBehaviour
 {
     public JTestClass jtc;
@@ -52,7 +43,7 @@ public class JsonExample : MonoBehaviour
         fileStream.Write(data, 0, data.Length);
         fileStream.Close();
     }
-    T LoadJsonFile<T>(string loadPath, string filename)
+    public T LoadJsonFile<T>(string loadPath, string filename)
     {
         FileStream fileStream = new FileStream(string.Format("{0}/{1}.json", loadPath, filename), FileMode.Open);
         byte[] data = new byte[fileStream.Length];
@@ -68,7 +59,6 @@ public class JsonExample : MonoBehaviour
         jtc = new JTestClass();
         jsondata = ObjectToJson(jtc);
         CreateJsonFile(Application.dataPath, "JTestClass", jsondata);
-        jtc = LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
     }
     private void Update()
     {
@@ -94,7 +84,7 @@ public class JsonExample : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            jtc.Print();
+            //jtc.Print();
             jtc = LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
         }
     }
