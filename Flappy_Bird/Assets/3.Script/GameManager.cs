@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static bool isAlive = true; // 살아있는지 확인
     public static bool isShield = false; // 쉴드 상태
     public static bool isInvincible = false; // 무적 상태
+    public float timer = 0;
     
     public static GameManager Instance // 싱글톤
     {
@@ -56,6 +57,15 @@ public class GameManager : MonoBehaviour
     {
         Init();
     }
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > 1f) {
+            timer = 0f;
+            score += 1;
+        }
+    }
+
     private void Init()
     {
      isAlive = true; // 살아있는지 확인
@@ -63,6 +73,7 @@ public class GameManager : MonoBehaviour
      isInvincible = false; // 무적 상태
      level = 0;
      score = 0;
+     timer = 0;
     }
 
     public void LoadScene(string str) // 해당 string 씬 로딩
