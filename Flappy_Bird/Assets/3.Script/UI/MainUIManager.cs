@@ -12,6 +12,7 @@ public class MainUIManager : MonoBehaviour
     [Header("메뉴, 옵션")]
     [SerializeField] GameObject[] gameObjects; // 메인,옵션
     [SerializeField] Text[] ranktexts;
+    [SerializeField] End_Ranking end_ranking;
 
     [Header("랭킹")]
     [SerializeField]private JsonExample jsonExample;
@@ -24,6 +25,8 @@ public class MainUIManager : MonoBehaviour
         jsonExample = FindObjectOfType<JsonExample>();
         isOption = false;
         isRanking = false;
+        end_ranking = FindObjectOfType<End_Ranking>();
+        end_ranking.gameObject.SetActive(false);
     }
 
     public void SceneLoad(string scene_name) // 게임 시작
@@ -52,7 +55,8 @@ public class MainUIManager : MonoBehaviour
     {
         if (!isRanking) // 메인
         {
-            PrintRank();
+            end_ranking.PrintRank(false);
+            //PrintRank();
             gameObjects[(int)Menus.Main].SetActive(false); // 메인 활성화
             gameObjects[(int)Menus.Ranking].SetActive(true); // 랭킹 비활성화
             isRanking = true; // 랭킹인지 물어보는 bool값을 true로 바꿈
@@ -98,6 +102,7 @@ public class MainUIManager : MonoBehaviour
 
     public void PrintRank()
     {
+
         //1등text : ranktexts[0]
         //2등text : ranktexts[1] 
         //3등text : ranktexts[2]

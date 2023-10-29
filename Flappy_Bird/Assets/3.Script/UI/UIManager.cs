@@ -9,7 +9,14 @@ public class UIManager : MonoBehaviour
     //[SerializeField] private Button restart, toMenu;
     [SerializeField] private GameObject endMenu, optionMenu, pauseMenu;
     [SerializeField] private Image backgroundImage;
+    [SerializeField] private End_Ranking end_ranking;
 
+    private void Start()
+    {
+       /* endMenu.gameObject.SetActive(true); // 끝날때 메뉴
+        end_ranking = endMenu.GetComponentInChildren<End_Ranking>();
+        endMenu.gameObject.SetActive(false);*/
+    }
     private void Update()
     {
         ShowScore(); // 현재 점수 UI
@@ -19,7 +26,7 @@ public class UIManager : MonoBehaviour
     
     private void ShowScore()
     {
-        if (scoreText) {
+        if (GameManager.isAlive && scoreText) {
             scoreText.text = $"Score : {GameManager.instance.score}";
         }
         
@@ -31,8 +38,9 @@ public class UIManager : MonoBehaviour
         {
             if (!endMenu.gameObject.activeSelf) {
                 Time.timeScale = 0;
-                endMenu.gameObject.SetActive(true); // 끝날때 메뉴
-                endMenu.GetComponentInChildren<End_Ranking>().PrintNewRank();
+                endMenu.gameObject.SetActive(true);
+                end_ranking.gameObject.SetActive(true);
+                end_ranking.PrintRank(true);
             }            
         }
         else if (GameManager.isAlive)
@@ -56,13 +64,14 @@ public class UIManager : MonoBehaviour
         {
             if (Time.timeScale == 0)
             {
-                Debug.Log("퍼즈메뉴 비활성화");
+                //Debug.Log("퍼즈메뉴 비활성화");
                 Time.timeScale = 1; // 재개
                 pauseMenu.gameObject.SetActive(false); // 퍼즈 메뉴
+                optionMenu.gameObject.SetActive(false);
             }
             else
             {
-                Debug.Log("퍼즈메뉴 활성화");
+                //Debug.Log("퍼즈메뉴 활성화");
                 Time.timeScale = 0; // 일시정지
                 pauseMenu.gameObject.SetActive(true);
             }
@@ -71,7 +80,6 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(string str) // 해당 string 씬 로딩 
     {
-        Debug.Log("dasd");
         if (Time.timeScale == 0f)
         {
             Time.timeScale = 1;

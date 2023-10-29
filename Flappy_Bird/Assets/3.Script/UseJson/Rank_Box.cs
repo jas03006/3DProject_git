@@ -32,7 +32,10 @@ public class Rank_Box : MonoBehaviour
         }
     }
 
-    public void set_text(string rank, string name, string score) {        
+    public void set_text(string rank, string name, string score) {
+        if (text_list == null) {
+            init();
+        }
         text_list[(int)rank_box_index.rank].text = rank;
         text_list[(int)rank_box_index.name].text = name;
         text_list[(int)rank_box_index.score].text = score;
@@ -40,6 +43,10 @@ public class Rank_Box : MonoBehaviour
     }
     public void set_text_input(string rank, string score)
     {
+        if (text_list == null)
+        {
+            init();
+        }
         text_list[(int)rank_box_index.rank].text = rank;
         text_list[(int)rank_box_index.name].text = "";
         text_list[(int)rank_box_index.score].text = score;
@@ -47,16 +54,27 @@ public class Rank_Box : MonoBehaviour
     }
 
     private void set_active_input(bool is_active) {
+        if (text_list == null)
+        {
+            init();
+        }
         text_list[(int)rank_box_index.name_input].transform.parent.gameObject.SetActive(is_active);
         text_list[(int)rank_box_index.name].gameObject.SetActive(!is_active);
     }
     public void save_input() {
-        
-        text_list[(int)rank_box_index.name].text = text_list[(int)rank_box_index.name_input].text;
+        if (text_list == null)
+        {
+            init();
+        }
+        text_list[(int)rank_box_index.name].text = get_input_name();
         set_active_input(false);
     }
 
     public string get_input_name() {
-        return text_list[(int)rank_box_index.name_input].text;
+        if (text_list == null)
+        {
+            init();
+        }
+        return text_list[(int)rank_box_index.name_input].text.Trim();
     }
 }
