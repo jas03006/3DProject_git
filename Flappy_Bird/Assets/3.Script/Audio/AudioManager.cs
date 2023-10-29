@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    public Slider volumeSlider, brightSlider; // 슬라이더 UI 요소
-    public AudioSource audioSource; // 오디오 소스
+    public AudioMixer mixer;
+    public Slider audioSlider;
 
-    private void Start()
+    public void AudioControl(float sliderVal)
     {
-        //초기 볼륨 설정
-       // volumeSlider.value = audioSource.volume;
-
-        volumeSlider.onValueChanged.AddListener(ChangeVolume);
+        float sound = audioSlider.value;
+        if (sound == -40f)
+        {
+            mixer.SetFloat("BGMSetting", -80);
+        }
+        else
+        {
+            mixer.SetFloat("BGMSetting", sound);
+        }
     }
-
-    public void ChangeVolume(float volume)
+    public void ToggleAudiooVolume()
     {
-        audioSource.volume = volume;
+        AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
     }
 
 }
