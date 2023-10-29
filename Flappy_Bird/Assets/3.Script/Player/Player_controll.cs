@@ -46,7 +46,7 @@ public class Player_controll : MonoBehaviour
 
     private void PlayerJump()   //플레이어 점프
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.timeScale != 0 && Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody_.AddForce(Vector3.up * get_force_adjustment(rigidbody_.velocity.y) * JumpForce,ForceMode.Impulse );
             audio_source.PlayOneShot(flap_clip);

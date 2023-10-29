@@ -33,7 +33,7 @@ public class SelectManager : MonoBehaviour
     [Header("캐릭터 선택")]
     [SerializeField] private GameObject[] characters; //캐릭터 오브젝트 배열
     private int index = 0; //인덱스 번호
-
+    private BGM_Player bgm_player;
     private void Start()
     {
         characters[0].gameObject.SetActive(true); //첫번째 캐릭터 활성화
@@ -41,6 +41,8 @@ public class SelectManager : MonoBehaviour
         {
             characters[i].gameObject.SetActive(false); //그 외 비활성화
         }
+
+        bgm_player = FindObjectOfType<BGM_Player>();
     }
 
     private void Update()
@@ -94,7 +96,7 @@ public class SelectManager : MonoBehaviour
                 break;
             }
         }
-
+        Destroy(bgm_player.gameObject);
         //다음 씬으로 넘기기
         SceneManager.LoadScene("MainGame");
     }

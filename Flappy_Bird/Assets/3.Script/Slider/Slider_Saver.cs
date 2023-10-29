@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Slider_Saver : MonoBehaviour
 {
     [SerializeField] Slider volume_slider;
+    [SerializeField] Slider sfx_slider;
     [SerializeField] Slider bright_slider;
     private void Start()
     {
@@ -13,6 +14,7 @@ public class Slider_Saver : MonoBehaviour
     }
     public void save() {
         PlayerPrefs.SetFloat("volume", volume_slider.value);
+        PlayerPrefs.SetFloat("sfx", sfx_slider.value);
         PlayerPrefs.SetFloat("brightness", bright_slider.value);
     }
 
@@ -24,6 +26,14 @@ public class Slider_Saver : MonoBehaviour
         }
         else {
             volume_slider.value = 0.5f;
+        }
+        if (PlayerPrefs.HasKey("sfx"))
+        {
+            sfx_slider.value = PlayerPrefs.GetFloat("sfx");
+        }
+        else
+        {
+            sfx_slider.value = 0.5f;
         }
         if (PlayerPrefs.HasKey("brightness"))
         {

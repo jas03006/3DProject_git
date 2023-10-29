@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rigidbody: []
+  rigidbody_: []
   id: 0
 --- !u!1 &3326793945589851536
 GameObject:
@@ -39579,10 +39579,10 @@ AudioSource:
   m_GameObject: {fileID: 8260471442703288028}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -581438155121511723, guid: 1f79679330016494a824ef645a403072, type: 2}
   m_audioClip: {fileID: 8300000, guid: d872e44d259c2fb4c8a1b2775808e40b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

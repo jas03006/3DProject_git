@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioMixer mixer;
     public Slider audioSlider;
-
+    public string param_name;
 
     public void AudioControl(float sliderVal)
     {
@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {*/
-            mixer.SetFloat("BGMSetting", sound*100f -80f);
+            mixer.SetFloat(param_name, sound*100f -80f);
         //}
     }
     public void ToggleAudiooVolume()

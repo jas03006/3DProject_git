@@ -75,7 +75,7 @@ public class JsonExample : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("±³¼ö´Ô ·©Å·µîÆÇ");
             jtc.RankUpdate("°íµ¿¿ø", 452);
@@ -85,7 +85,7 @@ public class JsonExample : MonoBehaviour
             CreateJsonFile(Application.dataPath, "JTestClass", jsondata);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             Debug.Log("°­¹ÎÀÌ¿Àºü ·©Å·µîÆÇ");
             jtc.RankUpdate("°­¹Î", 1000);
@@ -95,12 +95,12 @@ public class JsonExample : MonoBehaviour
             CreateJsonFile(Application.dataPath, "JTestClass", jsondata);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             //jtc.Print();
             jtc = LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             //jtc.Print();
             CreateJsonFile(Application.dataPath, "JTestClass", "{}");

@@ -14,55 +14,76 @@ public enum rank_box_index
 }
 public class End_Ranking : MonoBehaviour
 {
-    [SerializeField] private JsonExample jsonExample;
-    [SerializeField] Text[] ranktexts;
-    [SerializeField] Rank_Box[] Rank_Box_Array;
-    [SerializeField] GameObject input_rank_ob;
-    [SerializeField] Text[] input_ranktexts;
+    private JsonExample jsonExample;
+    private List<Rank_Box> Rank_Box_List;
+
     private bool is_saved;
     private int now_rank_index = 100;
+    private int new_score = 0;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         jsonExample = FindObjectOfType<JsonExample>();
         is_saved = false;
+        init_rank_box_list();
+    }
+
+    void Start()
+    {
+        
     }
 
     private void Update()
     {
-        if (!is_saved && Input.GetKeyDown(KeyCode.Return) && now_rank_index < Rank_Box_Array.Length) {
-            string new_name = Rank_Box_Array[now_rank_index].get_input_name();
+        if (!is_saved && Input.GetKeyDown(KeyCode.Return) && now_rank_index < Rank_Box_List.Count) {
+            string new_name = Rank_Box_List[now_rank_index].get_input_name();
             if (!new_name.Equals("") ) {
-                Rank_Box_Array[now_rank_index].save_input();
-                Debug.Log(new_name);
-                jsonExample.jtc.RankUpdate(new_name, GameManager.instance.score);
+                Rank_Box_List[now_rank_index].save_input();
+                jsonExample.jtc = jsonExample.LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
+                jsonExample.jtc.RankUpdate(new_name, new_score);
                 SaveNewRank();
                 is_saved = true;
+                //Debug.Log(new_name);
             }            
         }
     }
-    public void PrintNewRank()
+
+    private void init_rank_box_list() {
+        Rank_Box_List = new List<Rank_Box>();
+        for (int i =0; i < transform.childCount; i++) {
+            Rank_Box rb = transform.GetChild(i).GetComponent<Rank_Box>();
+            if (rb) {
+                Rank_Box_List.Add(rb);
+            }
+            
+        }
+    }
+    public void PrintRank(bool is_new=true)
     {
 
         jsonExample.jtc = jsonExample.LoadJsonFile<JTestClass>(Application.dataPath, "JTestClass");
         JTestClass new_jtc = new JTestClass(jsonExample.jtc);
-        new_jtc.RankUpdate("", GameManager.instance.score);
-        for (int i = 0; i < Rank_Box_Array.Length; i++)
+        if (is_new) {
+            new_score = GameManager.instance.score;
+            new_jtc.RankUpdate("", new_score);
+            //Debug.Log(new_jtc.data.Count);
+           // Debug.Log(Rank_Box_List.Count);
+        }        
+        for (int i = 0; i < Rank_Box_List.Count; i++)
         {
             if (i >= new_jtc.data.Count)
             {
-                Rank_Box_Array[i].set_text((i+1).ToString(),"","");
+                Rank_Box_List[i].set_text((i+1).ToString(),"","");
                 continue;
             }
-            if (new_jtc.data[i].name.Equals(""))
+            if (is_new && new_jtc.data[i].name.Equals(""))
             {
                 now_rank_index = i;
-                Rank_Box_Array[i].set_text_input((i+1).ToString(), new_jtc.data[i].score.ToString());
-
+                Rank_Box_List[i].set_text_input((i+1).ToString(), new_jtc.data[i].score.ToString());
             }
             else
             {
-                Rank_Box_Array[i].set_text((i + 1).ToString(),new_jtc.data[i].name, new_jtc.data[i].score.ToString());
+                Rank_Box_List[i].set_text((i + 1).ToString(),new_jtc.data[i].name, new_jtc.data[i].score.ToString());
             }
         }
     }
