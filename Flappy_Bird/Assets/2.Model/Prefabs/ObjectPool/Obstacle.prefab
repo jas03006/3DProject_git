@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 3326793945432215322}
   - component: {fileID: 1221380346726784155}
   m_Layer: 6
-  m_Name: TestObstacle
+  m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

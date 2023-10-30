@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {*/
-            mixer.SetFloat(param_name, sound*100f -80f);
+            mixer.SetFloat(param_name, sound*40f - 20f);
         //}
     }
     public void ToggleAudiooVolume()
